@@ -9,6 +9,8 @@ After Scanning a given Instagram Account, It will show a list of:
 - Accounts not following.
 - Follwers. 
 - Following.
+# 3) Whatsapp Message Bomb 💣
+Send a message N number of times to your friends xD
 
 # Command to Install Required modules
 pip3 -r requirements.txt

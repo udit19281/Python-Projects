@@ -1,4 +1,4 @@
-# python-projects
+# Python-Projects
 
   
 # 1) Personal Assistant
@@ -12,5 +12,5 @@ After Scanning a given Instagram Account, It will show a list of:
 # 3) Whatsapp Message Bomb 💣
 Send a message N number of times to your friends xD
 
-# Command to Install Required modules
+# Command to Install Required Modules
 pip3 -r requirements.txt

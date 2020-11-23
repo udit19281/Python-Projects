@@ -55,7 +55,7 @@ def takecomm():
         say("Listening")
         #sleep(0.5)
         r.pause_threshold=1
-        audio=r.listen(source,timeout=600,phrase_time_limit=6)
+        audio=r.listen(source,timeout=60,phrase_time_limit=10)
     try:
         q=r.recognize_google(audio,language='en-in')
         print("[+] RECOGNIZING....")
@@ -118,7 +118,7 @@ if __name__ == "__main__":
             sleep(5)
 
         elif "what can you do" in query or "who are you" in query or "introduce yourself" in query or "about yourself" in query:
-            print("Hye, I am your Assistant  made with love by udit")
+            print("Hye, I am your Assistant made with love by udit")
             print("List of Commands: ")
             print("Open Instagram")
             print("Gooogle search for _topic__")
@@ -158,7 +158,7 @@ if __name__ == "__main__":
             sleep(1.5)
             seluser="/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[1]/div/label/input"
             selpass="/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[2]/div/label/input"
-            sellog="/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]"
+            sellogin="/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[1]/div[3]/button/div"
             say("Enter login details ")
            
             try:
@@ -166,12 +166,13 @@ if __name__ == "__main__":
                 driver.find_element_by_xpath(seluser).send_keys(username)
                 password=input("Enter password: ")
                 driver.find_element_by_xpath(selpass).send_keys(password)
-                driver.find_element_by_xpath(sellog).click()
+                driver.find_element_by_xpath(sellogin).click()
                 sleep(4)
                 say('Instagram logged in successfully')
                 driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button").click()
                 sleep(2)
-                driver.find_element_by_xpath("/html/body/div[4]/div/div/div[3]/button[2]").click()
+                driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]").click()
+                sleep(2)
                
             except Exception as e:
                 print(e)
@@ -204,3 +205,4 @@ if __name__ == "__main__":
         
             
        
+#code by udit19281

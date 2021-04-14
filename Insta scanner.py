@@ -18,16 +18,14 @@ class insta:
             sleep(1)
             self.bro.find_element_by_xpath(sellogin).click()
             sleep(4)
+            #uncomment if 2 factor is used
+            #input("press enter after code")
             self.bro.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button").click()
-            # sleep(1)
-            # self.bro.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]").click()
-            # sleep(1)
             self.bro.get("https://www.instagram.com/"+name+"/")
         except Exception as e:
             print(e)
             exit(0)
         
-        # self.bro.find_element_by_css_selector("#react-root > section > main > section > div.COOzN.MnWb5.YT6rB > div.m0NAq.xrWdL > div > div._0v2O4.StX70 > div.SKguc > a").click()
     def username(self):
         sleep(1)
         scroll_box = self.bro.find_element_by_xpath("/html/body/div[5]/div/div/div[2]")
@@ -45,14 +43,11 @@ class insta:
         sleep(2)
         self.bro.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a").click()
         foll=self.username()
-        #self.bro.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/button/svg/path")\
-       #     .click()
         return foll
     def following(self):
         sleep(3)
         self.bro.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a").click()
         f=self.username()
-       # self.bro.find_element_by_xpath("/html/body/div[4]/div/div[1]/div/div[2]/button/svg").click()
         return f
     def dnfoll(self):
         followe=self.followers()
@@ -60,23 +55,23 @@ class insta:
         notf=[u for u in foling if u not in followe]
         return notf
 
-username=input("Enter Username: ")
-password=input("Enter Password: ")
+if __name__ == "__main__":
+    username=input("Enter Username: ")
+    password=input("Enter Password: ")
+    bot=insta(username,password)          
 
-bot=insta(username,password)          
+    followers=bot.followers()
+    following=bot.following()
+    notfollowing=[u for u in following if u not in followers]
 
-followers=bot.followers()
-following=bot.following()
-notfollowing=[u for u in following if u not in followers]
+    print("\n\tpeople not following: " + str(len(notfollowing)))
+    print(notfollowing)
 
-print("\n\tpeople not following: " + str(len(notfollowing)))
-print(notfollowing)
+    print ("\n\tfollowing: " + str(len(following)))
+    print (following)
 
-print ("\n\tfollowing: " + str(len(following)))
-print (following)
-
-print("\n\tfollowers: " + str(len(followers)))
-print(followers)
+    print("\n\tfollowers: " + str(len(followers)))
+    print(followers)
 
 #code by udit19281
 
